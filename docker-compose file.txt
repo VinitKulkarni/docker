@@ -1,0 +1,22 @@
+version: '2'
+services:
+  databaseimg:
+    build:
+      dockerfile: dockerfile
+      context: /home/ubuntu/docker-compose/database
+    image: databaseimg
+    container_name: dc-database
+  backendimg:
+    build:
+      dockerfile: dockerfile
+      context: /home/ubuntu/docker-compose/backend
+    image: backendimg
+    container_name: dcbackend
+  frontendimg:
+    build:
+      dockerfile: dockerfile
+      context: /home/ubuntu/docker-compose/frontend
+    image: frontendimg
+    container_name: dc-frontend
+    ports:
+    - 80:80
